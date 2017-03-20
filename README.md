@@ -1,24 +1,14 @@
-# README
+# Nu-Rumie
+![Build Status](https://codeship.com/projectse2ab7750-e4de-0134-56a3-260381cb9a2f/status?branch=master)
+[![Code Climate](https://codeclimate.com/github/DBombay/nu-rumie/badges/gpa.svg)](https://codeclimate.com/github/DBombay/nu-rumie)
+![Coverage Status](https://coveralls.io/repos/DBombay/nu-rumie/badge.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#About
 
-Things you may want to cover:
+Nu-Rumie is a Ruby 2.3.3 web app built to help people find roommates with similar interests! I'm still building it, so there isn't much to know about just yet. But I promise I'll update the ReadMe as the project scales!
 
-* Ruby version
+#Current Features
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- TDD built
+- Devise Authentication for users
+- Foundation CSS
