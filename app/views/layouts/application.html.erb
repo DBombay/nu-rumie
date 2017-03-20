@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nu Rumie</title>
+    <title><%= yield(:page_title) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css' %>
@@ -12,9 +12,12 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">Nu Rumie</li>
-          <li>About Us</li>
+          <li class="menu-text"><%=link_to 'Nu Rumie', page_path('home')%></li>
+          <li><%=link_to "About", page_path('about')%></li>
         </ul>
+      </div>
+      <div class="top-bar-right">
+        
       </div>
     </div>
     <%= yield %>
