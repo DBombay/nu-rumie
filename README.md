@@ -1,5 +1,5 @@
 # Nu-Rumie
-![Build Status](https://codeship.com/projectse2ab7750-e4de-0134-56a3-260381cb9a2f/status?branch=master)
+![Build Status](https://codeship.com/projects/e2ab7750-e4de-0134-56a3-260381cb9a2f/status?branch=master)
 [![Code Climate](https://codeclimate.com/github/DBombay/nu-rumie/badges/gpa.svg)](https://codeclimate.com/github/DBombay/nu-rumie)
 ![Coverage Status](https://coveralls.io/repos/DBombay/nu-rumie/badge.png)
 
