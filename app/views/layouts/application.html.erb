@@ -5,11 +5,11 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css' %>
-    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js' %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js" %>
   </head>
 
   <body>
-    <div class="top-bar">
+    <div class="top-bar" id="nav-bar-menu">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><%=link_to 'Nu Rumie', page_path('home')%></li>
@@ -17,8 +17,24 @@
         </ul>
       </div>
       <div class="top-bar-right">
-        <ul class="menu">
-          <li></li>
+        <ul class="menu align-right">
+          <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
+            <% if user_signed_in? %>
+              <li class="top-bar-link">
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </li>
+              <li class="top-bar-link">
+                <%= link_to "My Account", edit_user_registration_path %>
+              </li>
+            <% else %>
+              <li class="top-bar-link">
+                <%= link_to "Sign In", new_user_session_path %>
+              </li>
+              <li class="top-bar-link">
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </li>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
