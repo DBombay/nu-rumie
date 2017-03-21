@@ -1,6 +1,5 @@
 if Rails.env.development? || Rails.env.production?
   User.destroy_all
-  
   User.create!(
     first_name: 'Devin',
     last_name: 'Bombay',
