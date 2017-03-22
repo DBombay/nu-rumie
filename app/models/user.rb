@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
   validates :admin, inclusion: { in: [true, false] }
 
+  belongs_to :rumie
+
   def admin?
     admin == true
   end
