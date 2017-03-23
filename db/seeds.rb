@@ -11,6 +11,16 @@ if Rails.env.development? || Rails.env.production?
     password_confirmation: 'dbombay1',
     admin: true
   )
+  User.create!(
+    first_name: 'Rex',
+    last_name: 'Sachdev',
+    age: 26,
+    gender: 'female',
+    email: 'alexis.sachdev@gmail.com',
+    password: 'rexturbate',
+    password_confirmation: 'rexturbate',
+    admin: true
+  )
   RumieGroup.create!(
     group_name: 'Wolf Pack of 1',
     description: "I need no rumies. For I am the wolfpack of 1.",
