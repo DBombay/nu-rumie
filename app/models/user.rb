@@ -8,13 +8,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :age, presence: true
   validates :email,
-            presence: true,
-            uniqueness: true,
-            format: { with: /\A((\w+)|(\.))+\@[a-z]+\.[a-z]{3}\z/ }
+    presence: true,
+    uniqueness: true,
+    format: { with: /\A((\w+)|(\.))+\@[a-z]+\.[a-z]{3}\z/ }
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :admin, inclusion: { in: [true, false] }
-
   def admin?
     admin == true
   end
