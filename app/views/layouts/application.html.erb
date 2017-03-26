@@ -14,29 +14,60 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><%=link_to 'Nu Rumie', page_path('home')%></li>
-          <li><%=link_to "About", page_path('about')%></li>
+          <li><%=link_to "about", page_path('about')%></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu align-right">
+          <% if current_user %>
+            <% if current_user.rumie_group %>
+              <li class="top-bar-link"><%= link_to 'my rumies', show_rumie_group_path %></li>
+            <% else %>
+              <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
+            <% end %>
+          <% end %>
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
             <% if user_signed_in? %>
               <li class="top-bar-link">
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                <%= link_to "sign out", destroy_user_session_path, method: :delete %>
               </li>
               <li class="top-bar-link">
-                <%= link_to "My Account", edit_user_registration_path %>
+                <%= link_to "my account", edit_user_registration_path %>
               </li>
             <% else %>
               <li class="top-bar-link">
-                <%= link_to "Sign In", new_user_session_path %>
+                <%= link_to "sign in", new_user_session_path %>
               </li>
               <li class="top-bar-link">
-                <%= link_to "Sign Up", new_user_registration_path %>
+                <%= link_to "sign up", new_user_registration_path %>
               </li>
             <% end %>
           <% end %>
         </ul>
+      </div>
+      <div class="flash">
+        <% if flash[:notice] %>
+          <% if flash[:notice].is_a?(String) %>
+            <%= flash[:notice] %>
+          <% else %>
+            <% flash[:notice].each do |key, value| %>
+              <% if value.is_a?(Array) %>
+                <% value.each do |error| %>
+                  <%= "#{key.capitalize} #{error}." %>
+                <% end %>
+              <% else %>
+                <%= "#{key.capitalize} #{value}." %>
+              <% end %>
+              <br />
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% unless flash[:notice] %>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <%= yield %>

@@ -50,11 +50,12 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #2176FF,
+  secondary: #F17105,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+  white: #FFFFFF,
 );
 $black: #31393C;
 $orange: #F17105;
@@ -65,8 +66,8 @@ $body-background: $dark-blue;
 $body-font-color: $white;
 $body-font-family: 'Exo 2', 'Open Sans', Roboto, Arial, sans-serif;
 $body-antialiased: true;
-$global-margin: 1rem;
-$global-padding: 1rem;
+$global-margin: 0.5rem;
+$global-padding: 0.5rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
@@ -135,13 +136,13 @@ $header-small-font-color: $white;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
-$code-color: $black;
+$code-color: $white;
 $code-font-family: $font-family-monospace;
 $code-font-weight: $global-weight-normal;
 $code-background: $light-blue;
 $code-border: 1px solid $light-blue;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
+$anchor-color: $dark-blue;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -243,10 +244,10 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: $white;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $black;
+$button-color-alt: $white;
 $button-radius: $global-radius;
 $button-sizes: (
   tiny: 0.6rem,
@@ -342,7 +343,7 @@ $dropdown-sizes: (
 // -----------------
 
 $dropdownmenu-arrows: true;
-$dropdownmenu-arrow-color: $anchor-color;
+$dropdownmenu-arrow-color: $dark-blue;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
@@ -356,14 +357,14 @@ $fieldset-padding: rem-calc(20);
 $fieldset-margin: rem-calc(18 0);
 $legend-padding: rem-calc(0 3);
 $form-spacing: rem-calc(16);
-$helptext-color: $black;
+$helptext-color: $white;
 $helptext-font-size: rem-calc(13);
 $helptext-font-style: italic;
 $input-prefix-color: $black;
 $input-prefix-background: $dark-blue;
 $input-prefix-border: 1px solid $dark-blue;
 $input-prefix-padding: 1rem;
-$form-label-color: $black;
+$form-label-color: $white;
 $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
@@ -379,9 +380,9 @@ $input-background: $white;
 $input-background-focus: $white;
 $input-background-disabled: $dark-blue;
 $input-border: 1px solid $dark-blue;
-$input-border-focus: 1px solid $black;
+$input-border-focus: 1px solid $orange;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
-$input-shadow-focus: 0 0 5px $dark-blue;
+$input-shadow-focus: 0 0 5px $orange;
 $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
@@ -391,7 +392,7 @@ $form-button-radius: $global-radius;
 // 20. Label
 // ---------
 
-$label-background: $primary-color;
+$label-background: $orange;
 $label-color: $white;
 $label-color-alt: $black;
 $label-palette: $foundation-palette;
@@ -412,7 +413,7 @@ $mediaobject-image-width-stacked: 100%;
 $menu-margin: 0;
 $menu-margin-nested: 1rem;
 $menu-item-padding: 0.7rem 1rem;
-$menu-item-color-active: $white;
+$menu-item-color-active: $orange;
 $menu-item-background-active: get-color(primary);
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $dark-blue;
@@ -447,8 +448,8 @@ $maincontent-class: 'off-canvas-content';
 // 25. Orbit
 // ---------
 
-$orbit-bullet-background: $dark-blue;
-$orbit-bullet-background-active: $black;
+$orbit-bullet-background: $orange;
+$orbit-bullet-background-active: $white;
 $orbit-bullet-diameter: 1.2rem;
 $orbit-bullet-margin: 0.1rem;
 $orbit-bullet-margin-top: 0.8rem;

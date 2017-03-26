@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :admin, inclusion: { in: [true, false] }
+
+  belongs_to :rumie_group, optional: true
   def admin?
     admin == true
   end
