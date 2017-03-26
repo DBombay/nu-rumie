@@ -19,6 +19,13 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu align-right">
+          <% if current_user %>
+            <% if current_user.rumie_group %>
+              <li class="top-bar-link"><%= link_to 'my rumies', show_rumie_group_path %></li>
+            <% else %>
+              <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
+            <% end %>
+          <% end %>  
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
             <% if user_signed_in? %>
               <li class="top-bar-link">
@@ -36,13 +43,6 @@
               </li>
             <% end %>
           <% end %>
-          <% if current_user %>
-            <% if current_user.rumie_group %>
-              <li class="top-bar-link"><%= link_to 'my rumies', show_rumie_group_path %></li>
-            <% else %>
-              <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
-            <% end %>
-          <% end %>  
         </ul>
       </div>
     </div>
