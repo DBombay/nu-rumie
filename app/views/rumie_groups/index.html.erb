@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h2 class="text-center">available rumie groups</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <% @rumies.each do |rumie| %>
+      <div class='hollow expanded button white'>
+        <%=rumie.group_name%>
+        </br>
+        <%=rumie.description%>
+      </div>
+      <% end %>
+  </div>
+</div>

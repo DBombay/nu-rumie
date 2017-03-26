@@ -18,5 +18,4 @@ class RumieGroupsController < ApplicationController
   def index
     @rumies = RumieGroup.all
   end
-
 end
