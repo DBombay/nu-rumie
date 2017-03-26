@@ -25,7 +25,7 @@
             <% else %>
               <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
             <% end %>
-          <% end %>  
+          <% end %>
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
             <% if user_signed_in? %>
               <li class="top-bar-link">
@@ -44,6 +44,30 @@
             <% end %>
           <% end %>
         </ul>
+      </div>
+      <div class="flash">
+        <% if flash[:notice] %>
+          <% if flash[:notice].is_a?(String) %>
+            <%= flash[:notice] %>
+          <% else %>
+            <% flash[:notice].each do |key, value| %>
+              <% if value.is_a?(Array) %>
+                <% value.each do |error| %>
+                  <%= "#{key.capitalize} #{error}." %>
+                <% end %>
+              <% else %>
+                <%= "#{key.capitalize} #{value}." %>
+              <% end %>
+              <br />
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% unless flash[:notice] %>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <%= yield %>

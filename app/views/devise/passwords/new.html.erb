@@ -17,9 +17,12 @@
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="row">
+    <div class="small-offset-2 small-8 columns">
+      <div class="text-center">
+        <%= f.submit "Send me reset password instructions", class:"hollow button white" %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
