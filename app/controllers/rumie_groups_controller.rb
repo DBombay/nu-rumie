@@ -7,7 +7,6 @@ class RumieGroupsController < ApplicationController
     @rumie = RumieGroup.new(rumie_params)
 
     if @rumie.save
-      binding.pry
       flash[:notice] = "you've successfully formed a rumie group!"
       current_user.rumie_group = @rumie
       redirect to @rumie
