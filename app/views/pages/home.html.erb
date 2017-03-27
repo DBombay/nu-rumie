@@ -6,31 +6,53 @@
       <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     <li class="orbit-slide is-active">
       <div class="slide-content">
-        <div class="">
           <% if current_user %>
-            <h1 class="text-center">hi <%=current_user.first_name%>!</h3>
+            <h1 class="text-center">hi <%=current_user.first_name.downcase%>!</h1>
           <%end%>
-          <h1 class="text-center">welcome to nu rumie!</h3>
+          <h1 class="text-center">welcome to nu rumie!</h1>
           <% if current_user %>
             <div class="text-center">
               <%= link_to "view your profile", current_user, class: 'hollow button white' %>
             </div>
           <%end%>
-        </div>
       </div>
     </li>
     <li class="orbit-slide">
       <div class="slide-content">
-        <h1 class="text-center">ready to find some rumies?</h3>
-        <h2 class="text-center">click the button below to view available rumie groups!</h4>
+        <h1 class="text-center">connect with others and become rumies!</h1>
+        <% if current_user %>
+          <% if current_user.rumie_group %>
+            <h2 class="text-center">click the button below to check out your rumies!</h2>
+            <div class=text-center>
+              <%= link_to "#{current_user.rumie_group.group_name.downcase}", current_user.rumie_group, class:'hollow button white' %>
+            </div>
+          <% else%>
+            <h2 class="text-center">click the button below to view available rumie groups!</h2>
+            <div class=text-center>
+              <%= link_to "check out available rumies", rumie_groups_path, class:'hollow button white' %>
+            </div>
+          <% end %>
+        <% else %>
+          <h2 class="text-center">sign in to check out rumie groups, or form your own!</h2>
+          <div class=text-center>
+            <%= link_to "sign in", new_user_session_path, class:'hollow button white' %> <%= link_to "sign up", new_user_registration_path, class:'hollow button white'%>
+          </div>
+        <% end %>
+      </div>
+    </li>
+    <li class="orbit-slide">
+      <div class="slide-content">
+        <h1 class="text-center">check out other users!</h1>
+        <h2 class="text-center">click the button below to see who else is registered</h2>
         <div class=text-center>
-          <%= link_to "check out available rumies", rumie_groups_path, class:'hollow button white' %>
+          <%= link_to "check out other users", users_path, class:'hollow button white' %>
         </div>
       </div>
     </li>
   </ul>
   <nav class="orbit-bullets">
-    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button class="is-active" data-slide="0"><span class="show-for-sr">welcome</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">rumie groups</span></button>
+    <button data-slide="2"><span class="show-for-sr">users</span></button>
   </nav>
 </div>

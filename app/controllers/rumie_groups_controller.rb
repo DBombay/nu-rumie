@@ -8,8 +8,8 @@ class RumieGroupsController < ApplicationController
 
     if @rumie.save
       flash[:notice] = "you've successfully formed a rumie group!"
-      current_user.rumie_group = @rumie
-      redirect to @rumie
+      @rumie.users.push(current_user)
+      redirect_to @rumie
     else
       flash[:notice] = @rumie.errors.full_messages
       render :new

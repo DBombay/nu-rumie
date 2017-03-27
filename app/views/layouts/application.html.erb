@@ -25,7 +25,7 @@
         <ul class="menu align-right">
           <% if current_user %>
             <% if current_user.rumie_group %>
-              <li class="top-bar-link"><%= link_to 'my rumies', show_rumie_group_path %></li>
+              <li class="top-bar-link"><%= link_to "#{current_user.rumie_group.group_name.downcase}", current_user.rumie_group %></li>
             <% else %>
               <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
             <% end %>
