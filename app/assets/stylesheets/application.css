@@ -23,9 +23,9 @@ body {
 }
 
 .slide-content{
-  height: 85vh;
+  height: 80vh;
 }
 
-.slide1{
-  background-color:
+.hidden {
+  display: none;
 }

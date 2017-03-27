@@ -11,7 +11,7 @@
   <%= devise_error_messages! %>
 
 <div class="row">
-  <div class = "small-offset-2 small-8 columns">
+  <div class = "small-8 small-centered columns">
     <div class="small-12 columns">
       <%= f.label :first_name, 'First Name' %>
       <%= f.text_field :first_name, autofocus: true %>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="row">
-  <div class = "small-offset-2 small-8 columns">
+  <div class = "small-8 small-centered columns">
     <div class="small-12 columns">
       <%= f.label :last_name, 'Last Name' %>
       <%= f.text_field :last_name %>
@@ -31,7 +31,7 @@
 
 
 <div class="row">
-  <div class = "small-offset-2 small-8 columns">
+  <div class = "small-8 small-centered columns">
     <div class="small-12 columns">
       <%= f.label :email %>
       <%= f.email_field :email %>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="row">
-  <div class = "small-offset-2 small-8 columns">
+  <div class = "small-8 small-centered columns">
     <div class="small-12 columns">
       <% if @minimum_password_length %>
         <%= f.label :password %><em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -51,7 +51,7 @@
 </div>
 
 <div class="row">
-  <div class = "small-offset-2 small-8 columns">
+  <div class = "small-8 small-centered columns">
     <div class="small-12 columns">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
@@ -61,7 +61,7 @@
 
 
 <div class="row">
-  <div class="small-offset-2 small-8 columns">
+  <div class="small-8 small-centered columns">
     <div class="text-center">
       <%= f.submit "Sign up", class:"hollow button white" %>
       <%= render "devise/shared/links" %>

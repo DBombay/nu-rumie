@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322211351) do
+ActiveRecord::Schema.define(version: 20170327155202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20170322211351) do
   create_table "rumie_groups", force: :cascade do |t|
     t.string   "group_name"
     t.text     "description"
-    t.integer  "creator_id",  null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "creator_id",              null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "max_users",   default: 1
   end
 
   create_table "users", force: :cascade do |t|

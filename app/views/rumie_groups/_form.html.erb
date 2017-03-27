@@ -1,0 +1,20 @@
+<%= form_for @rumie, html: {class:"rumie group form"} do |f| %>
+  <div class="column row">
+    <%= f.label :group_name %>
+    <%= f.text_field(:group_name, placeholder: "think of a something creative") %>
+  </div>
+  <div class="column row">
+      <%= f.label :max_users, "what's the max number of rumies you want with you?" %>
+      <%= f.select :max_users, [1,2,3,4,5,6], placeholder: "max rumies" %>
+  </div>
+  <div class="column row">
+    <%= f.label :description %>
+    <%= f.text_area(:description, placeholder: "this is where others can learn about your group. do you want to throw parties? have a communal room that everyone hangs out in? here's your chance to share!", rows: "10")%>
+  </div>
+  <div class="column row">
+    <div class="text-center">
+      <%= f.submit 'make my rumie group!', class: 'hollow button white'%>
+    </div>
+  </div>
+    <%= f.hidden_field :creator_id, value: current_user.id%>
+<% end %>
