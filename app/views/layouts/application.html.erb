@@ -7,7 +7,7 @@
 
     <%= csrf_meta_tags %>
     <%= favicon_link_tag "/public/favicon.ico" %>
-    <!-- <link rel="shortcut icon" href="/public/favicon.ico"/> -->
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Exo+2|Open+Sans' %>
     <%= javascript_include_tag 'application' %>
@@ -17,7 +17,7 @@
     <div class="top-bar" id="nav-bar-menu">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text"><%=link_to 'Nu Rumie', page_path('home')%></li>
+          <li class="menu-text"><%=link_to 'nü rümie', page_path('home'), class:"title"%></li>
           <li><%=link_to "about", page_path('about')%></li>
         </ul>
       </div>
@@ -27,7 +27,7 @@
             <% if current_user.rumie_group %>
               <li class="top-bar-link"><%= link_to "#{current_user.rumie_group.group_name.downcase}", current_user.rumie_group %></li>
             <% else %>
-              <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
+              <li class="top-bar-link"><%= link_to 'get some rümies', new_rumie_group_path %></li>
             <% end %>
           <% end %>
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
@@ -36,7 +36,7 @@
                 <%= link_to "sign out", destroy_user_session_path, method: :delete %>
               </li>
               <li class="top-bar-link">
-                <%= link_to "my account", edit_user_registration_path %>
+                <%= link_to "account settings", edit_user_registration_path %>
               </li>
             <% else %>
               <li class="top-bar-link">

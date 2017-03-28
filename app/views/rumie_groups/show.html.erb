@@ -1,1 +1,35 @@
-<%= "show page for #{@rumie.group_name}" %>
+<% content_for :page_title, "#{@rumie.group_name.downcase}" %>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h1 class="text-center"><%= @rumie.group_name.downcase %></h1>
+    <h3 class="text-center">formed by <%=User.find(@rumie.creator_id).first_name.downcase%></h3>
+  </div>
+  <% if current_user.id == @rumie.creator_id %>
+    <div class="text-center">
+      <%= link_to "settings and options", edit_rumie_group_path(@rumie), class:"button secondary" %>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  </br>
+  <div class="text-center">react chat function will go here</div>
+  </br>
+</div>
+<div class="row align-spaced">
+  <div class="small-10 medium-5 columns orange-bordered">
+    <p class="text-center">
+      <%= @rumie.description.downcase %>
+    </p>
+  </div>
+  <div class="small-10 medium-5 columns orange-bordered">
+    <p class="text-center">
+      <%=@rumie.users.length%>/<%= @rumie.max_users %> rumies in this group
+    </p>
+    <ul class="text-center">
+      <h4>users in this group</h4>
+      <% @rumie.users.each do |user| %>
+      <li><%= link_to "#{user.first_name.downcase} #{user.last_name.downcase}", user, class:"expanded button secondary" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class RumieGroupsController < ApplicationController
+  before_action :authorize_user
   def new
     @rumie = RumieGroup.new
   end
@@ -24,7 +25,40 @@ class RumieGroupsController < ApplicationController
     @rumie = RumieGroup.find(params[:id])
   end
 
+  def edit
+    @rumie = RumieGroup.find(params[:id])
+  end
+
+  def update
+    @rumie = RumieGroup.find(params[:id])
+    @rumie.assign_attributes(rumie_params)
+
+    if @rumie.valid?
+      @rumie.save
+      flash[:notice] = "changes  for #{@rumie.group_name.downcase} saved"
+      redirect_to @rumie
+    else
+      flash[:notice] = @rumie.errors.fullmessages
+      render :edit
+    end
+  end
+
+  def destroy
+    @rumie = RumieGroup.find(params[:id])
+    @rumie.delete
+
+    flash[:notice] = "#{@rumie.group_name.downcase} is no more!"
+    redirect_to root_path
+  end
+
   private
+
+  def authorize_user
+    unless user_signed_in? || current_user.admin?
+      flash[:notice] = "this page doesn't exist"
+      redirect_to home
+    end
+  end
 
   def rumie_params
     params.require(:rumie_group).permit(

@@ -1,0 +1,36 @@
+<% content_for :page_title, "edit #{@rumie.group_name.downcase}" %>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h1 class="text-center">edit <%= @rumie.group_name.downcase %></h1>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h3 class="text-center">-group settings-</h3>
+    <%= render 'form' %>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h3 class="text-center">-users in <%= @rumie.group_name.downcase %>-</h3>
+    <ul class="text-center">
+      <% @rumie.users.each do |user| %>
+        <% unless user.id == @rumie.creator_id %>
+          <li><str><%=user.first_name.downcase%> <%=user.last_name.downcase%></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h3 class="text-center">no longer need <%=@rumie.group_name.downcase%>?</h3>
+    <p class="text-center">you can delete your group by clicking the button below.
+    be warned, there's no turning back from here...</p>
+    <div class="text-center">
+      <%= link_to "delete #{@rumie.group_name.downcase} forever", @rumie, data: { confirm: 'are you sure about this?' }, method: :delete, class: "button secondary" %>
+    </div>
+  </div>
+</div>

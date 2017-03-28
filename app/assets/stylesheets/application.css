@@ -15,17 +15,3 @@
  *= require_self
 
  */
-
-body {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-
-.slide-content{
-  height: 80vh;
-}
-
-.hidden {
-  display: none;
-}

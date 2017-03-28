@@ -1,6 +1,6 @@
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h2 class="text-center"><%= current_user.first_name%>'s profile</h2>
+    <h2 class="text-center"><%= current_user.first_name.downcase%>'s profile</h2>
   </div>
 </div>
 
@@ -13,11 +13,11 @@
       <h3 class="text-center">personal options</h2>
       <p class="text-center">having an identity crisis? you can update your personal info here</p>
       <div class="small-6 columns">
-        <%= f.label :first_name, 'First Name' %>
+        <%= f.label :first_name, 'first name' %>
         <%= f.text_field :first_name, autofocus: true %>
       </div>
       <div class="small-6 columns">
-        <%= f.label :last_name, 'Last Name' %>
+        <%= f.label :last_name, 'last name' %>
         <%= f.text_field :last_name %>
       </div>
     </div>
@@ -25,12 +25,12 @@
   <div class="row">
     <div class = "small-10 small-centered columns">
       <div class="small-6 columns">
-        <%= f.label :age, 'Age' %>
+        <%= f.label :age, 'age' %>
         <%= f.text_field :age %>
       </div>
       <div class="small-6 columns">
-        <%= f.label :gender, 'Gender' %>
-        <%= f.text_field :gender %>
+        <%= f.label :gender, 'gender' %>
+        <%= f.text_field :gender, placeholder: "put whatever fits" %>
       </div>
     </div>
   </div>
@@ -46,11 +46,11 @@
       <p class="text-center">also, your password needs to have at least <%= @minimum_password_length %> characters</p>
       <% end %>
       <div class="small-6 columns">
-        <%= f.label :password, 'New Password' %>
+        <%= f.label :password, 'new password' %>
         <%= f.password_field :password, autocomplete: "off", placeholder:'leave blank if you don\'t want to change it' %>
       </div>
       <div class="small-6 columns">
-        <%= f.label :password_confirmation, 'Confirm New Password' %>
+        <%= f.label :password_confirmation, 'confirm new password' %>
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:'leave blank if you don\'t want to change it' %>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <h3 class="text-center">close your account</h2>
       <p class="text-center">if you don't need your account anymore, you close it here</p>
       <p class="text-center">
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+        <%= button_to "cancel my account", registration_path(resource_name), data: { confirm: "we hate to see you go. are you sure about this?" }, method: :delete, class:"button secondary" %>
       </p>
     </div>
   </div>
@@ -70,12 +70,12 @@
       <h3 class="text-center">confirm your changes</h2>
       <p class="text-center">enter your password and hit submit to confirm any changes</p>
       <div class= "small-10 columns">
-        <%= f.label :current_password %>
+        <%= f.label :current_password, 'current password' %>
         <%= f.password_field :current_password, placeholder:"you must enter your password to confirm changes", autocomplete: false %>
       </div>
       <div class="small-2 columns">
         </br>
-        <%= f.submit "Update Profile" %>
+        <%= f.submit "update profile", class: "hollow button white" %>
       </div>
     </div>
   </div>

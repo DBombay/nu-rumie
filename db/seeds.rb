@@ -17,8 +17,8 @@ if Rails.env.development? || Rails.env.production?
     age: 26,
     gender: 'female',
     email: 'alexis.sachdev@gmail.com',
-    password: 'rexturbate',
-    password_confirmation: 'rexturbate',
+    password: 'snuggle',
+    password_confirmation: 'snuggle',
     admin: true
   )
   User.create!(
@@ -34,6 +34,7 @@ if Rails.env.development? || Rails.env.production?
   RumieGroup.create!(
     group_name: 'Wolf Pack of 1',
     description: "I need no rumies. For I am the wolfpack of 1.",
+    max_users: 2,
     creator_id: db.id
   )
 end

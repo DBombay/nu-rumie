@@ -8,3 +8,49 @@
   font-family: "Exo 2";
   font-size: 100%
 }
+
+p {
+  a{
+    color: #F17105;
+  }
+}
+
+.orange-bordered {
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: thin;
+  height: 250px;
+
+  h3{
+    border-bottom: thin;
+    border-bottom-style: solid;
+  }
+}
+
+.menu-text {
+  .title {
+    font-size: 120%;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.slide-content{
+  height: 80vh;
+  position: relative;
+  top: 50%;
+  transform: translateY(40%);
+}
+
+.hidden {
+  display: none;
+}
