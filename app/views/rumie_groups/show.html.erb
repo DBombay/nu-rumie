@@ -8,7 +8,14 @@
     <div class="text-center">
       <%= link_to "settings and options", edit_rumie_group_path(@rumie), class:"button secondary" %>
     </div>
-  <% end %>
+  <% elsif current_user.rumie_group.nil? %>
+    <div class="text-center">
+      <%= link_to "join this group", user_path(current_user, group_id: @rumie.id), method: :patch, class:"button secondary" %>
+    </div>
+  <% else %>
+  <div class="text-center">
+    <%= link_to "leave this group", user_path(current_user, group_id: @rumie.id), method: :patch, class:"button secondary" %>
+  </div>  <% end %>
 </div>
 <div class="row">
   </br>
