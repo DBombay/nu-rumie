@@ -1,0 +1,23 @@
+<% content_for :page_title, "potential rümies" %>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h1 class="text-center">users on nü rümie</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <ul>
+    <% @users::each do |user| %>
+      <li>
+        <%=user.first_name.downcase%> <%=user.last_name.downcase%>
+        <%if user.age%>
+          age: <%=user.age%>
+        <% end %>
+        <%if user.gender%>
+          gender: <%=user.gender%>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
