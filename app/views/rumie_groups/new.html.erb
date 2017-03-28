@@ -1,25 +1,31 @@
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h2 class="text-center">form a rumie group</h2>
+    <h2 class="text-center">form a rümie group</h2>
   </div>
 </div>
 
 <div class="row">
   <div class="small-8 small-centered columns">
     <p class="text-center">
-      ready to start finding some rumies? of course you are!
+      ready to start finding some rümies? of course you are!
       there are two ways you can start:
     </p>
       <ul class="text-center">
-        <li>you can create your own group by filling out the form below</li>
-        <li>you can click the 'view open rumie groups' button and join an already formed group</li>
+        <li>-you can create your own group by filling out the form below-</li>
+        <li>-you can click the 'view open rümie groups' button and join an already formed group-</li>
       </ul>
     <p class="text-center">
       do which ever you're more comfortable with.
       we're sure you'll find awesome people no matter what you choose
     </p>
-    <div class='align-self'>
-      <%= link_to rumie_groups_path, class:"hollow button white" %>
+    <div class='text-center'>
+      <%= link_to 'find some rümies to join', rumie_groups_path, class:"button secondary" %>
     </div>
   </div>
+</div>
+
+<div class='row'>
+    <div class="small-8 small-centered columns">
+      <%= render 'form' %>
+    </div>
 </div>

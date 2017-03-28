@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:page_title) %></title>
+    <title>
+      <%= yield(:page_title) %>
+    </title>
+
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag "/public/favicon.ico" %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Exo+2|Open+Sans' %>
@@ -13,7 +17,7 @@
     <div class="top-bar" id="nav-bar-menu">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text"><%=link_to 'Nu Rumie', page_path('home')%></li>
+          <li class="menu-text"><%=link_to 'nü rümie', page_path('home'), class:"title"%></li>
           <li><%=link_to "about", page_path('about')%></li>
         </ul>
       </div>
@@ -21,9 +25,9 @@
         <ul class="menu align-right">
           <% if current_user %>
             <% if current_user.rumie_group %>
-              <li class="top-bar-link"><%= link_to 'my rumies', show_rumie_group_path %></li>
+              <li class="top-bar-link"><%= link_to "#{current_user.rumie_group.group_name.downcase}", current_user.rumie_group %></li>
             <% else %>
-              <li class="top-bar-link"><%= link_to 'get some rumies', new_rumie_group_path %></li>
+              <li class="top-bar-link"><%= link_to 'get some rümies', new_rumie_group_path %></li>
             <% end %>
           <% end %>
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
@@ -32,7 +36,7 @@
                 <%= link_to "sign out", destroy_user_session_path, method: :delete %>
               </li>
               <li class="top-bar-link">
-                <%= link_to "my account", edit_user_registration_path %>
+                <%= link_to "account settings", edit_user_registration_path %>
               </li>
             <% else %>
               <li class="top-bar-link">
@@ -45,30 +49,29 @@
           <% end %>
         </ul>
       </div>
-      <div class="flash">
-        <% if flash[:notice] %>
-          <% if flash[:notice].is_a?(String) %>
-            <%= flash[:notice] %>
-          <% else %>
-            <% flash[:notice].each do |key, value| %>
-              <% if value.is_a?(Array) %>
-                <% value.each do |error| %>
-                  <%= "#{key.capitalize} #{error}." %>
-                <% end %>
-              <% else %>
-                <%= "#{key.capitalize} #{value}." %>
+    </div>
+    <div class="flash">
+      <% if flash[:notice] %>
+        <% if flash[:notice].is_a?(String) %>
+          <%= flash[:notice] %>
+        <% else %>
+          <% flash[:notice].each do |key, value| %>
+            <% if value.is_a?(Array) %>
+              <% value.each do |error| %>
+                <%= "#{key.capitalize} #{error}." %>
               <% end %>
-              <br />
+            <% else %>
+              <%= "#{key.capitalize} #{value}." %>
             <% end %>
+            <br />
           <% end %>
         <% end %>
-
-        <% unless flash[:notice] %>
-          <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-          <% end %>
+      <% end %>
+      <% unless flash[:notice] %>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
         <% end %>
-      </div>
+      <% end %>
     </div>
     <%= yield %>
   </body>

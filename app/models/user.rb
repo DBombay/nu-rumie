@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :admin, inclusion: { in: [true, false] }
 
   belongs_to :rumie_group, optional: true
+
   def admin?
     admin == true
   end
