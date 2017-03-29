@@ -1,6 +1,8 @@
 source 'https://rubygems.org/'
 
+gem 'carrierwave'
 gem 'devise'
+gem 'fog-aws'
 gem 'foundation-rails'
 gem 'high_voltage', '~> 3.0.0'
 gem 'jquery-rails'

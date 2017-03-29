@@ -34,6 +34,14 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <%= f.label :avatar, "profile photo" %>
+      <%= f.file_field :avatar, class:"hollow button white"%>
+    </div>
+  </div>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
