@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   belongs_to :rumie_group, optional: true
 
+  mount_uploader :avatar, AvatarUploader
+
   def admin?
     admin == true
   end

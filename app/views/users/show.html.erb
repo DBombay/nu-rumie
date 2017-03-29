@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="small-8 small-centered columns">
-    <h1 class="text-centered"> <%= current_user.first_name.downcase %> <%= current_user.last_name.downcase %></h1>
+  <div class="small-12 medium-2 columns">
+    <img src="<%= current_user.avatar %>">
+  </div>
+  <div class="small-12 medium-6 small-centered columns">
+    <h1 class="text-right"> <%= current_user.first_name.downcase %> <%= current_user.last_name.downcase %></h1>
   </div>
 </div>
