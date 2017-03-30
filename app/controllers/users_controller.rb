@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_user, except: [:index, :show, :update]
+  before_action :authorize_user, except: [:index, :show]
 
   def index
     @users = User.all
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     @user = User.find(params[:id])
     if @user.rumie_group
       @rumie = RumieGroup.find(@user.rumie_group)
