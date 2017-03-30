@@ -15,12 +15,11 @@ p {
   }
 }
 
-.orange-bordered {
+.bordered {
   border-color: #ffffff;
   border-style: solid;
   border-radius: 15px;
   border-width: thin;
-  height: 250px;
 
   h3 {
     border-bottom: thin;
@@ -53,4 +52,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+.vert-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(40%);
 }

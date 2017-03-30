@@ -1,8 +1,68 @@
+<% content_for :page_title, "#{@user.first_name.downcase}'s profile" %>
+
 <div class="row">
-  <div class="small-12 medium-2 columns">
-    <img src="<%= current_user.avatar %>">
+  <div class="small-3 small-offset-2 columns">
+    <img src="<%= @user.avatar %>">
   </div>
-  <div class="small-12 medium-6 small-centered columns">
-    <h1 class="text-right"> <%= current_user.first_name.downcase %> <%= current_user.last_name.downcase %></h1>
+  <div class="small-7 columns">
+    <h1 class="text-left"><%= @user.first_name.downcase %> <%= @user.last_name.downcase %></h1>
+    <h4 class="text-left">age: <%= @user.age%></h4>
+    <% if @user.gender %>
+      <h4 class="text-left">gender: <%= @user.gender %></h4>
+    <% end %>
+    <% if @user.rumie_group %>
+      <h4 class="text-left">rümies with <%=@user.rumie_group.group_name.downcase%></h4>
+    <% end %>
+    <% if current_user == @user %>
+      <%= link_to 'edit my profile', edit_user_registration_path(@user), class:"button secondary" %>
+    <% end %>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="small-12 medium-4 columns">
+    <h5 class="text-left">about <%= @user.first_name.downcase %>:</h5>
+    <% if @user.about_personality %>
+      <p class="text-justify">
+        <%= @user.about_personality.downcase %>
+      </p>
+    <% else %>
+      <p class="text-justify">
+        <em>
+          <%= @user.first_name.downcase%> hasn't added anything about
+          themselves yet...
+        </em>
+      </p>
+    <% end %>
+  </div>
+  <div class="small-12 medium-4 columns">
+    <h5 class="text-left">about <%= @user.first_name.downcase %>'s career:</h5>
+    <% if @user.about_career %>
+      <p class="text-justify">
+        <%= @user.about_career.downcase %>
+      </p>
+    <% else %>
+      <p class="text-justify">
+        <em>
+          <%= @user.first_name.downcase%> hasn't added anything about
+          their career path just yet...
+        </em>
+      </p>
+    <% end %>
+  </div>
+  <div class="small-12 medium-4 columns">
+    <h5 class="text-left"><%= @user.first_name.downcase %>'s ideal rümie:</h5>
+    <% if @user.about_preferences %>
+      <p class="text-justify">
+        <%= @user.about_preferences.downcase %>
+      </p>
+    <% else %>
+      <p class="text-justify">
+        <em>
+          <%= @user.first_name.downcase%> is keeping their rümie preferences
+          a secret...
+        </em>
+      </p>
+    <% end %>
   </div>
 </div>

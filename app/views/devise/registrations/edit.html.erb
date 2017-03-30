@@ -1,3 +1,4 @@
+<% content_for :page_title, 'edit your profile' %>
 <div class="row">
   <div class="small-8 small-centered columns">
     <h2 class="text-center"><%= current_user.first_name.downcase%>'s profile</h2>
@@ -5,12 +6,14 @@
 </div>
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
   <%= devise_error_messages! %>
+
   </br>
+
   <div class="row">
     <div class = "small-10 small-centered columns">
-      <h3 class="text-center">personal options</h2>
+      <h3 class="text-center">personal options</h3>
       <p class="text-center">having an identity crisis? you can update your personal info here</p>
       <div class="small-6 columns">
         <%= f.label :first_name, 'first name' %>
@@ -22,6 +25,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class = "small-10 small-centered columns">
       <div class="small-6 columns">
@@ -41,38 +45,66 @@
       <%= f.file_field :avatar, class:"hollow button white"%>
     </div>
   </div>
-  
+
+  <div class="row">
+    <div class = "small-8 small-centered columns">
+      <div class="small-12 columns">
+        <p class="text-center">
+          tell us (and others) a little about yourself, what you do, and the kind of
+          rümie you want to live with.
+        </p>
+      </div>
+      <div class="small-12 columns">
+        <%= f.label :about_personality, 'about you' %>
+        <%= f.text_area :about_personality, placeholder: "tell use the story of you!"%>
+      </div>
+      <div class="small-12 columns">
+        <%= f.label :about_career, 'about your profession' %>
+        <%= f.text_area :about_career, placeholder: "what occupies your productive time? do you work from home? an office? are you a student? if so, what are you studying?"%>
+      </div>
+      <div class="small-12 columns">
+        <%= f.label :about_preferences, 'what do you look for in a rümie?' %>
+        <%= f.text_area :about_preferences, placeholder: "what's the best scenario rümie? try to focus on positives, since most people probably don't consider what they do that bother's people..."%>
+      </div>
+    </div>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
   </br>
+
   <div class="row">
     <div class="small-8 small-centered columns">
-      <h3 class="text-center">password options</h2>
+      <h3 class="text-center">password options</h3>
       <p class="text-center">you can update your password here. we'll keep it a secret. promise.</p>
       <% if @minimum_password_length %>
       <p class="text-center">also, your password needs to have at least <%= @minimum_password_length %> characters</p>
       <% end %>
       <div class="small-6 columns">
         <%= f.label :password, 'new password' %>
-        <%= f.password_field :password, autocomplete: "off", placeholder:'leave blank if you don\'t want to change it' %>
+        <%= f.password_field :password, autocomplete: false, placeholder:"leave blank if you don't want to change it" %>
       </div>
       <div class="small-6 columns">
         <%= f.label :password_confirmation, 'confirm new password' %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:'leave blank if you don\'t want to change it' %>
+        <%= f.password_field :password_confirmation, autocomplete: false, placeholder:"leave blank if you don't want to change it" %>
       </div>
     </div>
   </div>
+
   </br>
+
   <div class="row">
     <div class="small-8 small-centered columns">
       <h3 class="text-center">close your account</h2>
       <p class="text-center">if you don't need your account anymore, you close it here</p>
       <p class="text-center">
-        <%= button_to "cancel my account", registration_path(resource_name), data: { confirm: "we hate to see you go. are you sure about this?" }, method: :delete, class:"button secondary" %>
+        <%= link_to "cancel my account", registration_path(resource_name), data: { confirm: "we hate to see you go. are you sure about this?" }, method: :delete, class:"button secondary" %>
       </p>
     </div>
   </div>
+
   <div class="row">
     <div class="small-8 small-centered columns">
       <h3 class="text-center">confirm your changes</h2>
@@ -88,6 +120,7 @@
     </div>
   </div>
 <% end %>
+
 <div class="row">
   <div class="text-center">
     <%= link_to "Back", :back, class: "hollow button white" %>

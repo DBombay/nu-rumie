@@ -1,3 +1,5 @@
+<% content_for :page_title, "sign up for nü rümie" %>
+
 <div class="row">
   <div class="small-8 small-centered columns">
     <h2 class="text-center">sign up</h2>
@@ -74,6 +76,29 @@
   <div class="small-8 small-centered columns">
     <%= f.label :avatar, "profile photo" %>
     <%= f.file_field :avatar, class:"hollow button white"%>
+  </div>
+</div>
+
+<div class="row">
+  <div class = "small-8 small-centered columns">
+    <div class="small-12 columns">
+      <p class="text-center">
+        tell us (and others) a little about yourself, what you do, and the kind of
+        rümie you want to live with.
+      </p>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :about_personality, 'about you' %>
+      <%= f.text_area :about_personality, placeholder: "tell use the story of you!"%>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :about_career, 'about your profession' %>
+      <%= f.text_area :about_career, placeholder: "what occupies your productive time? do you work from home? an office? are you a student? if so, what are you studying?"%>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :about_preferences, 'what do you look for in a rümie?' %>
+      <%= f.text_area :about_personality, placeholder: "what's the best scenario rümie? try to focus on positives, since most people probably don't consider what they do that bother's people..."%>
+    </div>
   </div>
 </div>
 
