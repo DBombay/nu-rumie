@@ -5,7 +5,7 @@
 
 #About
 
-Nu-Rumie is a Ruby 2.2.3 web app built to help people find roommates with similar interests! I'm still building it, so there isn't much to know about just yet. But I promise I'll update the ReadMe as the project scales!
+Nu-Rumie is a Ruby 2.3.3 web app built to help people find roommates with similar interests! I'm still building it, so there isn't much to know about just yet. But I promise I'll update the ReadMe as the project scales!
 
 #Current Features
 
@@ -15,3 +15,13 @@ Nu-Rumie is a Ruby 2.2.3 web app built to help people find roommates with simila
 - Rails 5 back-end
 - ActiveRecord PSQL database usage
 - Profile photos hosted through S3 AWS, and uploaded with CarrierWave
+
+#Admin
+
+- Admins are set by boolean, and must be seeded with admin as 'true'.
+- Admins can delete and edit rumie groups
+
+#Users
+
+- Users can create groups and set their sizes.
+- Users that create a group have admin privileges over their group, and can eject others
