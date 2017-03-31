@@ -5,12 +5,13 @@
       <%= yield(:page_title) %>
     </title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= favicon_link_tag "/public/favicon.ico" %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Exo+2|Open+Sans' %>
-    <%= javascript_include_tag 'application' %>
+
   </head>
 
   <body>
@@ -19,6 +20,9 @@
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><%=link_to 'nü rümie', page_path('home'), class:"title"%></li>
           <li><%=link_to "about", page_path('about')%></li>
+          <% if current_user && current_user.admin %>
+            <li><%=link_to "admin", page_path('admin')%></li>
+          <%end%>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -32,20 +36,21 @@
           <% end %>
           <% if request.env['PATH_INFO'] != "/users/sign_up" && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/edit" %>
             <% if user_signed_in? %>
-              <li class="top-bar-link">
-                <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-              </li>
-              <li class="top-bar-link">
-                <%= link_to "account settings", edit_user_registration_path %>
-              </li>
-            <% else %>
-              <li class="top-bar-link">
-                <%= link_to "sign in", new_user_session_path %>
-              </li>
-              <li class="top-bar-link">
-                <%= link_to "sign up", new_user_registration_path %>
-              </li>
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class=".is-dropdown-submenu-parent">
+                  <a>signed in as <%= current_user.first_name.downcase%> <%= current_user.last_name.downcase%></a>
+                  <ul class="flashy">
+                    <li><%= link_to "my profile", current_user %></li>
+                    <li><%= link_to "account", edit_user_registration_path %></li>
+                    <li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </li>
+              </ul>
             <% end %>
+          <% end %>
+          <% unless user_signed_in? %>
+            <li class="top-bar-link"><%= link_to "sign in", new_user_session_path %></li>
+            <li class="top-bar-link"><%= link_to "sign up", new_user_registration_path %></li>
           <% end %>
         </ul>
       </div>
@@ -74,5 +79,6 @@
       <% end %>
     </div>
     <%= yield %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

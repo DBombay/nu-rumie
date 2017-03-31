@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="small-3 small-offset-2 columns">
-    <img src="<%= @user.avatar %>">
+    <img src="<%= @user.avatar %>" class="profpic">
   </div>
   <div class="small-7 columns">
     <h1 class="text-left"><%= @user.first_name.downcase %> <%= @user.last_name.downcase %></h1>
@@ -18,51 +18,53 @@
     <% end %>
   </div>
 </div>
+
 </br>
+
 <div class="row">
-  <div class="small-12 medium-4 columns">
-    <h5 class="text-left">about <%= @user.first_name.downcase %>:</h5>
-    <% if @user.about_personality %>
-      <p class="text-justify">
-        <%= @user.about_personality.downcase %>
-      </p>
+  <div class="small-8 small-centered columns">
+    <h4 class="text-left">about <%= @user.first_name.downcase %>:</h4>
+    <% unless @user.about_personality == "" || @user.about_personality.nil? %>
+      <h6 class="text-justify"><%= @user.about_personality.downcase %></h6>
     <% else %>
-      <p class="text-justify">
+      <h6 class="text-justify">
         <em>
           <%= @user.first_name.downcase%> hasn't added anything about
           themselves yet...
         </em>
-      </p>
+      </h6>
     <% end %>
   </div>
-  <div class="small-12 medium-4 columns">
-    <h5 class="text-left">about <%= @user.first_name.downcase %>'s career:</h5>
-    <% if @user.about_career %>
-      <p class="text-justify">
-        <%= @user.about_career.downcase %>
-      </p>
+
+  </br>
+
+  <div class="small-8 small-centered columns">
+    <h4 class="text-left">about <%= @user.first_name.downcase %>'s career:</h4>
+    <% unless @user.about_career == "" || @user.about_career.nil? %>
+      <h6 class="text-justify"><%= @user.about_career.downcase %></h6>
     <% else %>
-      <p class="text-justify">
+      <h6 class="text-justify">
         <em>
           <%= @user.first_name.downcase%> hasn't added anything about
           their career path just yet...
         </em>
-      </p>
+      </h6>
     <% end %>
   </div>
-  <div class="small-12 medium-4 columns">
-    <h5 class="text-left"><%= @user.first_name.downcase %>'s ideal rümie:</h5>
-    <% if @user.about_preferences %>
-      <p class="text-justify">
-        <%= @user.about_preferences.downcase %>
-      </p>
+
+  </br>
+
+  <div class="small-8 small-centered columns">
+    <h4 class="text-left"><%= @user.first_name.downcase %>'s ideal rümie:</h4>
+    <% unless @user.about_preferences == "" || @user.about_preferences.nil? %>
+      <h6 class="text-justify"><%= @user.about_preferences.downcase %></h6>
     <% else %>
-      <p class="text-justify">
+      <h6 class="text-justify">
         <em>
           <%= @user.first_name.downcase%> is keeping their rümie preferences
           a secret...
         </em>
-      </p>
+      </h6>
     <% end %>
   </div>
 </div>

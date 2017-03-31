@@ -59,3 +59,31 @@ body {
   top: 50%;
   transform: translateY(40%);
 }
+
+.flashy {
+  li {
+    visibility: hidden;
+    a {
+      visibility: visible;
+      width: 110%;
+      height: 110%;
+      padding-left: 1em;
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+  }
+}
+
+.flashy:hover {
+  li {
+    visibility: visible;
+  }
+}
+
+.profpic {
+  border-radius: 150px;
+}
+
+.thumb {
+  border-radius: 500%;
+}
