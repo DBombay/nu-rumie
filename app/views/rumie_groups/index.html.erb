@@ -1,6 +1,8 @@
+<% content_for :page_title, "available rümie groups" %>
+
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h2 class="text-center">available rumie groups</h2>
+    <h2 class="text-center">available rümie groups</h2>
   </div>
 </div>
 
@@ -9,8 +11,15 @@
     <ul class="text-center">
     <% @rumies.each do |rumie| %>
       <% if rumie.users.length < rumie.max_users %>
-        <li><%=link_to "#{rumie.group_name.downcase}: #{rumie.description}", rumie, class:"hollow button white"%></li>
-        <% end %>
+        <li class="row bordered">
+          <div class="small-10 columns">
+            <p class="text-left"><%= rumie.group_name%> | <%= rumie.users.length + 1%>/<%=rumie.max_users%> rumies </p>
+            <p class="text-left">looking for a place in: <%= rumie.city%>, <%= rumie.state %></p>
+            <p class="text-justify"><%= rumie.description%></p>
+          </div>
+          <div class ="small-2 columns"><%=link_to "view", rumie, class:"button secondary vert-centered"%></div>
+        </li>
+      <% end %>
     <% end %>
     </ul>
   </div>

@@ -65,7 +65,9 @@ class RumieGroupsController < ApplicationController
       :group_name,
       :max_users,
       :description,
-      :creator_id
+      :creator_id,
+      :city,
+      :state
     )
   end
 end

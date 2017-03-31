@@ -9,17 +9,22 @@ if Rails.env.development? || Rails.env.production?
     email: 'd.bombay@live.com',
     password: 'dbombay1',
     password_confirmation: 'dbombay1',
-    admin: true
+    admin: true,
+    city: 'Philadelphia',
+    state: 'PA',
+    rumie_group_id: 1
   )
   User.create!(
-    first_name: 'Rex',
+    first_name: 'Lex',
     last_name: 'Sachdev',
     age: 26,
     gender: 'female',
     email: 'alexis.sachdev@gmail.com',
     password: 'snuggle',
     password_confirmation: 'snuggle',
-    admin: true
+    admin: true,
+    city: 'Philadelphia',
+    state: 'PA'
   )
   User.create!(
     first_name: 'Zeus',
@@ -29,12 +34,16 @@ if Rails.env.development? || Rails.env.production?
     email: 'whosagoodboi@zeus.com',
     password: 'cookie',
     password_confirmation: 'cookie',
-    admin: false
+    admin: false,
+    city: 'Philadelphia',
+    state: 'PA'
   )
   RumieGroup.create!(
     group_name: 'Wolf Pack of 1',
     description: "I need no rumies. For I am the wolfpack of 1.",
     max_users: 2,
-    creator_id: db.id
+    creator_id: db.id,
+    city: 'Philadelphia',
+    state: 'PA'
   )
 end

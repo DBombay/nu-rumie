@@ -68,3 +68,15 @@
     <% end %>
   </div>
 </div>
+
+<div class="row">
+  <div class="small-8 small-centered columns" >
+    <h4 class="text-left">wants to live in <%= @user.city %>, <%= @user.state %></h4>
+    <div class="small-10 columns" id="map"></div>
+    <input id="address" type="hidden" value="<%= @user.city %> <%= @user.state %>">
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
+      type="text/javascript">
+    </script>
+  </div>
+</div>
