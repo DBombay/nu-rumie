@@ -15,6 +15,7 @@ Nu-Rumie is a Ruby 2.3.3 web app built to help people find roommates with simila
 - Rails 5 back-end
 - ActiveRecord PSQL database usage
 - Profile photos hosted through S3 AWS, and uploaded with CarrierWave
+- integrates Google Maps API
 
 #Admin
 
