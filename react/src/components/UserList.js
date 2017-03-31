@@ -13,7 +13,7 @@ class UserList extends Component {
   }
 
   getUsers() {
-    fetch('https://nu-rumie.herokuapp.com/api/v1/users.json')
+    fetch('http://nu-rumie.herokuapp.com/api/v1/users.json')
       .then(response => {
         if (response.ok) {
           return response;
