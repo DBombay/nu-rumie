@@ -1,0 +1,44 @@
+.card-divider {
+  text-align: center;
+  background-color: #33A1FD;
+  width: 75%;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.card {
+  // border-radius: 10px;
+  background-color: #2176FF;
+}
+
+.info {
+  text-align: center;
+  padding: 10px;
+  height: 190px;
+}
+
+
+.imageContainer {
+  height: 5px;
+  width: 5px;
+}
+
+.image{
+border-radius: 100%
+}
+
+.numbers {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.viewContainer {
+  width: 100%;
+}
+
+.view {
+  display: inherit;
+  font-size: 24px;
+  margin: 0 auto;
+}
