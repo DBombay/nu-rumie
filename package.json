@@ -1,13 +1,13 @@
 {
   "name": "nu-rumie",
   "version": "1.0.0",
-  "description": "",
+  "description": "![Build Status](https://codeship.com/projects/e2ab7750-e4de-0134-56a3-260381cb9a2f/status?branch=master) [![Code Climate](https://codeclimate.com/github/DBombay/nu-rumie/badges/gpa.svg)](https://codeclimate.com/github/DBombay/nu-rumie) ![Coverage Status](https://coveralls.io/repos/DBombay/nu-rumie/badge.png)",
   "main": "webpack.config.js",
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
     "start": "npm run webpack -- --watch",
-    "test": "node_modules/.bin/karma start react/karma.conf.js",
-    "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
+    "test": "karma start react/karma.conf.js",
+    "webpack": "webpack --config ./react/webpack.config.js"
   },
   "author": "DBombay",
   "license": "ISC",
@@ -47,5 +47,20 @@
     "redux-form": "^5.2.3",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBombay/nu-rumie.git"
+  },
+  "keywords": [
+    "roommates",
+    "social",
+    "rumies",
+    "rumie",
+    "nu"
+  ],
+  "bugs": {
+    "url": "https://github.com/DBombay/nu-rumie/issues"
+  },
+  "homepage": "https://github.com/DBombay/nu-rumie#readme"
 }

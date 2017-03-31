@@ -17,18 +17,20 @@
     <%= link_to "leave this group", user_path(current_user, group_id: @rumie.id), method: :patch, class:"button secondary" %>
   </div>  <% end %>
 </div>
+
 <div class="row">
   </br>
   <div class="text-center">react chat function will go here</div>
   </br>
 </div>
+
 <div class="row align-spaced">
-  <div class="small-10 medium-5 columns bordered">
+  <div class="small-10 medium-5 columns">
     <p class="text-center">
       <%= @rumie.description.downcase %>
     </p>
   </div>
-  <div class="small-10 medium-5 columns bordered">
+  <div class="small-10 medium-5 columns">
     <p class="text-center">
       <%=@rumie.users.length%>/<%= @rumie.max_users %> rumies in this group
     </p>
@@ -39,4 +41,14 @@
       <% end %>
     </ul>
   </div>
+</div>
+
+
+<div class="row">
+  <div class="small-12 columns" id="map"></div>
+  <input id="address" type="hidden" value="19148">
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
+    type="text/javascript">
+  </script>
 </div>
