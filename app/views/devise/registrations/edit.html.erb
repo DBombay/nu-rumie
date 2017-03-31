@@ -1,4 +1,10 @@
 <% content_for :page_title, 'edit your profile' %>
+<%states =["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+"GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MN",
+"MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK",
+"OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA",
+"WI", "WV", "WY"]%>
+
 <div class="row">
   <div class="small-8 small-centered columns">
     <h2 class="text-center"><%= current_user.first_name.downcase%>'s profile</h2>
@@ -51,8 +57,18 @@
       <div class="small-12 columns">
         <p class="text-center">
           tell us (and others) a little about yourself, what you do, and the kind of
-          rümie you want to live with.
+          rümie you want to live with, and the place you want to live.
         </p>
+      </div>
+      <div class="row">
+        <div class="small-8 columns">
+          <%= f.label :city, "which city will you look for a place in?" %>
+          <%= f.text_field :city, placeholder: "Gotham" %>
+        </div>
+        <div class="small-4 columns">
+          <%= f.label :state, "state" %>
+          <%= f.select :state, states, placeholder: "state" %>
+        </div>
       </div>
       <div class="small-12 columns">
         <%= f.label :about_personality, 'about you' %>

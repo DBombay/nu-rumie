@@ -1,11 +1,27 @@
+<%states =["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+"GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MN",
+"MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK",
+"OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA",
+"WI", "WV", "WY"]%>
+
 <%= form_for @rumie, html: {class:"rumie group form"} do |f| %>
   <div class="column row">
     <%= f.label :group_name %>
-    <%= f.text_field(:group_name, placeholder: "think of a something creative") %>
+    <%= f.text_field(:group_name, placeholder: "think of a something creative and catchy") %>
   </div>
   <div class="column row">
       <%= f.label :max_users, "what's the max number of users (including you) in the group?" %>
       <%= f.select :max_users, [2,3,4,5,6], placeholder: "max rümies" %>
+  </div>
+  <div class="row">
+    <div class="small-8 columns">
+      <%= f.label :city, "which city will you look for a place in?" %>
+      <%= f.text_field :city, placeholder: "Gotham" %>
+    </div>
+    <div class="small-4 columns">
+      <%= f.label :state, "state" %>
+      <%= f.select :state, states, placeholder: "state" %>
+    </div>
   </div>
   <div class="column row">
     <%= f.label :description %>

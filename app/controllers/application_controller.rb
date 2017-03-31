@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
         :avatar,
         :about_personality,
         :about_career,
-        :about_preferences
+        :about_preferences,
+        :city,
+        :state
       ]
     )
     devise_parameter_sanitizer.permit(
@@ -29,7 +31,9 @@ class ApplicationController < ActionController::Base
         :avatar,
         :about_personality,
         :about_career,
-        :about_preferences
+        :about_preferences,
+        :city,
+        :state
       ]
     )
   end

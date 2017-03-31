@@ -46,7 +46,7 @@
 
 <div class="row">
   <div class="small-12 columns" id="map"></div>
-  <input id="address" type="hidden" value="19148">
+  <input id="address" type="hidden" value="<%= @rumie.city %> <%= @rumie.state %> ">
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
     type="text/javascript">

@@ -10,6 +10,7 @@
     <% if @user.gender %>
       <h4 class="text-left">gender: <%= @user.gender %></h4>
     <% end %>
+    <h4 class="text-left">wants to live in <%= @user.city %>, <%= @user.state %></h4>
     <% if @user.rumie_group %>
       <h4 class="text-left">rümies with <%=@user.rumie_group.group_name.downcase%></h4>
     <% end %>
