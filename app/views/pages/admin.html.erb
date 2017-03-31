@@ -1,0 +1,39 @@
+<% @users = User.all %>
+<% @rumies = RumieGroup.all %>
+
+<% content_for :page_title, 'admin functions' %>
+
+<div class="row aligned-spaced">
+  <div class="small-10 medium-5 columns">
+    <ul class="text-center"><h3>users</h3>
+      <% @users.each do |user| %>
+      <% unless user.admin %>
+        <li class="row">
+          <img src="<%=user.avatar%>" class="small-2 columns thumb"/>
+          <p class="small-5 columns text-left">
+            <%= user.first_name.downcase %> <%=user.last_name.downcase%>
+          </p>
+          <%= link_to 'edit', edit_user_registration_path(User.find(user.id)), class:"small-2 column tiny button secondary"%>
+          <%= link_to 'remove', registration_path(User.find(user.id)), method: :delete, class:"small-2 column tiny button secondary"%>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="small-10 medium-5 columns">
+    <ul class="text-center"><h3>rümie groups</h3>
+      <% @rumies.each do |rumie| %>
+      <% unless rumie.creator.admin %>
+        <li class="row">
+          <p class="small-7 columns text-left">
+            <%= rumie.group_name %>
+          </p>
+          <%= link_to 'edit', edit_rumie_group_path(rumie), class:"small-2 column tiny button secondary"%>
+          <%= link_to 'remove',  rumie, method: :delete, class:"small-2 column tiny button secondary"%>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
