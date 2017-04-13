@@ -1,54 +1,45 @@
 class RumieGroupsController < ApplicationController
   before_action :authorize_user
+
+  before_action :set_rumie, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @rumies = RumieGroup.all # Pagination issues? What happens when you have 400k users?
+  end
+
   def new
     @rumie = RumieGroup.new
   end
 
   def create
     @rumie = RumieGroup.new(rumie_params)
-
     if @rumie.save
-      flash[:notice] = "you've successfully formed a rumie group!"
       @rumie.users.push(current_user)
-      redirect_to @rumie
+      redirect_to @rumie, flash: { notice:  "you've successfully formed a rumie group!" )
     else
-      flash[:notice] = @rumie.errors.full_messages
-      render :new
+      render :new #, flash[:notice] = @rumie.errors.full_messages. # Pass errors full in a partial on a model. 
     end
   end
 
-  def index
-    @rumies = RumieGroup.all
-  end
+  def show; end
 
-  def show
-    @rumie = RumieGroup.find(params[:id])
-  end
-
-  def edit
-    @rumie = RumieGroup.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @rumie = RumieGroup.find(params[:id])
     @rumie.assign_attributes(rumie_params)
-
-    if @rumie.valid?
-      @rumie.save
-      flash[:notice] = "changes  for #{@rumie.group_name.downcase} saved"
-      redirect_to @rumie
+    # odd variable name. not very informative, as @rumie refers to a singular, and not a group. 
+    if @rumie.valid? && @rumie.save
+      # However .valid? will already be called in the #save method
+      redirect_to @rumie, flash: {:notice: "changes  for #{@rumie.group_name.downcase} saved"}
     else
-      flash[:notice] = @rumie.errors.fullmessages
-      render :edit
+      render :edit #,  render full errors in a partial. 
     end
   end
 
   def destroy
-    @rumie = RumieGroup.find(params[:id])
     @rumie.delete
-
-    flash[:notice] = "#{@rumie.group_name.downcase} is no more!"
-    redirect_to root_path
+    
+    redirect_to root_path, flash: {notice:  "#{@rumie.group_name.downcase} is no more!"}
   end
 
   private
@@ -59,6 +50,15 @@ class RumieGroupsController < ApplicationController
       redirect_to home
     end
   end
+  
+  def set_rumie
+    @rumie = RumieGroup.find(params[:id])
+    unless @rumie
+      redirect_to :back, flash: {notice: "Rumie not found... weird... "}
+    end
+  end
+  # odd variable name. not very informative, as @rumie refers to a singular, and not a group. 
+
 
   def rumie_params
     params.require(:rumie_group).permit(
