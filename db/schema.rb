@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331191218) do
+ActiveRecord::Schema.define(version: 20170411221443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20170331191218) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
-    t.integer  "age",                                 null: false
+    t.string   "first_name",                                null: false
+    t.string   "last_name",                                 null: false
+    t.integer  "age",                                       null: false
     t.string   "gender"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",       null: false
+    t.string   "encrypted_password",     default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20170331191218) do
     t.text     "about_personality"
     t.text     "about_career"
     t.text     "about_preferences"
-    t.string   "city",                                null: false
-    t.string   "state",                               null: false
+    t.string   "city",                                      null: false
+    t.string   "state",                                     null: false
+    t.string   "role",                   default: "renter", null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["rumie_group_id"], name: "index_users_on_rumie_group_id", using: :btree
