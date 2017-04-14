@@ -19,7 +19,7 @@ Nu-Rumie is a Ruby 2.3.3 web app built to help people find roommates with simila
 
 #Admin
 
-- Admins are set by boolean, and must be seeded with admin as 'true'.
+- Admins are initially set through seeding the database. Users have a 'role' attribute that is set to 'renter' by default. Role must be assigned to 'admin' for front-end access to the admin page
 - Admins can delete and edit rumie groups
 
 #Users
