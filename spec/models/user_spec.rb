@@ -8,6 +8,7 @@ describe User do
   it { should validate_presence_of(:age) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:role) }
 
   it 'should have a unique email address' do
     expect { FactoryGirl.create(:user, email: 'dog1@dogs.com') }.to_not raise_error
@@ -22,13 +23,13 @@ describe User do
 end
 
 describe '#admin?' do
-  it "should return 'false' if the user is not an admin" do
-    user = FactoryGirl.create(:user)
-    expect(user.admin?).to eq(false)
+  it "should return 'false' if the user is not an admin(confirm save)" do
+    user = FactoryGirl.create(:user, role: "renter")
+    expect(user.admin?).to be(false)
   end
 
   it "should return 'true' if the user is an admin" do
-    admin = FactoryGirl.create(:user, admin: true)
-    expect(admin.admin?).to eq(true)
+    admin = FactoryGirl.create(:user, role: "admin")
+    expect(admin.admin?).to be(true)
   end
 end

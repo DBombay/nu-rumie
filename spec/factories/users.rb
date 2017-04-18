@@ -8,5 +8,6 @@ FactoryGirl.define do
     password_confirmation 'password'
     city 'Philadelphia'
     state 'PA'
+    role "renter"
   end
 end

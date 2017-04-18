@@ -7,7 +7,7 @@
   <div class="small-10 medium-5 columns">
     <ul class="text-center"><h3>users</h3>
       <% @users.each do |user| %>
-      <% unless user.admin %>
+      <% unless user.admin? %>
         <li class="row">
           <img src="<%=user.avatar%>" class="small-2 columns thumb"/>
           <p class="small-5 columns text-left">
@@ -24,7 +24,7 @@
   <div class="small-10 medium-5 columns">
     <ul class="text-center"><h3>rümie groups</h3>
       <% @rumies.each do |rumie| %>
-      <% unless rumie.creator.admin %>
+      <% unless rumie.creator.admin? %>
         <li class="row">
           <p class="small-7 columns text-left">
             <%= rumie.group_name %>

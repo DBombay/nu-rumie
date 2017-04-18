@@ -1,7 +1,7 @@
 if Rails.env.development? || Rails.env.production?
   User.destroy_all
   RumieGroup.destroy_all
-  db = User.create!(
+  User.create!(
     first_name: 'Devin',
     last_name: 'Bombay',
     age: 29,
@@ -9,7 +9,7 @@ if Rails.env.development? || Rails.env.production?
     email: 'd.bombay@live.com',
     password: 'dbombay1',
     password_confirmation: 'dbombay1',
-    admin: true,
+    role: "admin",
     city: 'Philadelphia',
     state: 'PA',
     rumie_group_id: 1
@@ -22,11 +22,11 @@ if Rails.env.development? || Rails.env.production?
     email: 'alexis.sachdev@gmail.com',
     password: 'snuggle',
     password_confirmation: 'snuggle',
-    admin: true,
+    role: "moderator",
     city: 'Philadelphia',
     state: 'PA'
   )
-  User.create!(
+  zb = User.create!(
     first_name: 'Zeus',
     last_name: 'Bombay',
     age: 7,
@@ -34,7 +34,7 @@ if Rails.env.development? || Rails.env.production?
     email: 'whosagoodboi@zeus.com',
     password: 'cookie',
     password_confirmation: 'cookie',
-    admin: false,
+    role: "renter",
     city: 'Philadelphia',
     state: 'PA'
   )
@@ -42,7 +42,7 @@ if Rails.env.development? || Rails.env.production?
     group_name: 'Wolf Pack of 1',
     description: "I need no rumies. For I am the wolfpack of 1.",
     max_users: 2,
-    creator_id: db.id,
+    creator_id: zb.id,
     city: 'Philadelphia',
     state: 'PA'
   )

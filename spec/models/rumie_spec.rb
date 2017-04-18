@@ -7,9 +7,9 @@ describe RumieGroup do
 
   it "should have a user as a creator" do
     user1 = FactoryGirl.create(:user)
-    rumies = FactoryGirl.create(:rumie_group, creator: user1)
+    rumies = FactoryGirl.create(:rumie_group, creator_id: user1.id)
 
-    expect(rumies.creator).to be(user1)
+    expect(rumies.creator_id).to be(user1.id)
   end
 
   it "cannot be initialized without a creator" do

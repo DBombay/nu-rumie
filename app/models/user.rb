@@ -13,7 +13,7 @@ class User < ApplicationRecord
     format: { with: /\A((\w+)|(\.))+\@[a-z]+\.[a-z]{3}\z/ }
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
-  validates :admin, inclusion: { in: [true, false] }
+  validates :role, presence: true, inclusion: { in: ["admin", "moderator", "renter", "landlord"] }
   validates :city, presence: true
   validates :state, presence: true
 
@@ -22,6 +22,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def admin?
-    admin == true
+    self.role == "admin"
   end
 end
