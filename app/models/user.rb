@@ -13,7 +13,7 @@ class User < ApplicationRecord
     format: { with: /\A((\w+)|(\.))+\@[a-z]+\.[a-z]{3}\z/ }
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
-  validates :role, presence: true, inclusion: { in: ["admin", "moderator", "tenant", "leasor"] }
+  validates :role, presence: true, inclusion: { in: ["admin", "moderator", "renter", "landlord"] }
   validates :city, presence: true
   validates :state, presence: true
 
