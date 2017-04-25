@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411221443) do
+ActiveRecord::Schema.define(version: 20170425144957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170411221443) do
     t.string   "city",                                      null: false
     t.string   "state",                                     null: false
     t.string   "role",                   default: "renter", null: false
+    t.integer  "budget"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["rumie_group_id"], name: "index_users_on_rumie_group_id", using: :btree
