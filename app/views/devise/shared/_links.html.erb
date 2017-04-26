@@ -6,7 +6,7 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="hollow button white">
-    <%= link_to "sign up", new_registration_path(resource_name) %>
+    <%= link_to "sign up", page_path('getstarted') %>
   </div>
 <% end -%>
 

@@ -50,7 +50,7 @@
           <% end %>
           <% unless user_signed_in? %>
             <li class="top-bar-link"><%= link_to "sign in", new_user_session_path %></li>
-            <li class="top-bar-link"><%= link_to "sign up", new_user_registration_path %></li>
+            <li class="top-bar-link"><%= link_to "sign up", page_path('getstarted') %></li>
           <% end %>
         </ul>
       </div>
