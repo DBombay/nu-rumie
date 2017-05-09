@@ -4,7 +4,7 @@
 "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA",
 "WI", "WV", "WY"]%>
 
-<%= form_for @rumie, html: {class:"rumie group form"} do |f| %>
+<%= form_for @rumie_group, html: {class:"rumie group form"} do |f| %>
   <div class="column row">
     <%= f.label :group_name %>
     <%= f.text_field(:group_name, placeholder: "think of a something creative and catchy") %>

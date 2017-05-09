@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.rumie_group
-      @rumie = RumieGroup.find(@user.rumie_group)
+      @rumie_group = RumieGroup.find(@user.rumie_group)
       @user.rumie_group = nil
       if @user.save
         flash[:notice] = "#{@user.first_name.downcase} removed successfully from
-        #{@rumie.group_name.downcase}"
+        #{@rumie_group.group_name.downcase}"
       else
         flash[:notice] = @rumie.errors.full_messages
       end
