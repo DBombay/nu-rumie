@@ -1,8 +1,6 @@
 function initMap() {
-  var philly = {lat: 39.9526, lng: -75.1652};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
-    center: philly
   });
   var geocoder = new google.maps.Geocoder();
 
