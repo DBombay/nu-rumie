@@ -1,7 +1,7 @@
-<% content_for :page_title, "edit #{@rumie.group_name.downcase}" %>
+<% content_for :page_title, "edit #{@rumie_group.group_name.downcase}" %>
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h1 class="text-center">edit <%= @rumie.group_name.downcase %></h1>
+    <h1 class="text-center">edit <%= @rumie_group.group_name.downcase %></h1>
   </div>
 </div>
 </br>
@@ -14,10 +14,10 @@
 </br>
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h3 class="text-center">-users in <%= @rumie.group_name.downcase %>-</h3>
+    <h3 class="text-center">-users in <%= @rumie_group.group_name.downcase %>-</h3>
     <ul class="text-center">
-      <% @rumie.users.each do |user| %>
-        <% unless user.id == @rumie.creator_id %>
+      <% @rumie_group.users.each do |user| %>
+        <% unless user.id == @rumie_group.creator_id %>
           <li><%=user.first_name.downcase%> <%=user.last_name.downcase%><%=link_to 'remove user', user_path(user), method: :patch%></li>
         <% end %>
       <% end %>
@@ -26,11 +26,11 @@
 </div>
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h3 class="text-center">no longer need <%=@rumie.group_name.downcase%>?</h3>
+    <h3 class="text-center">no longer need <%=@rumie_group.group_name.downcase%>?</h3>
     <p class="text-center">you can delete your group by clicking the button below.
     be warned, there's no turning back from here...</p>
     <div class="text-center">
-      <%= link_to "delete #{@rumie.group_name.downcase} forever", @rumie, data: { confirm: 'are you sure about this?' }, method: :delete, class: "button secondary" %>
+      <%= link_to "delete #{@rumie_group.group_name.downcase} forever", @rumie_group, data: { confirm: 'are you sure about this?' }, method: :delete, class: "button secondary" %>
     </div>
   </div>
 </div>

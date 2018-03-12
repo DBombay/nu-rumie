@@ -12,20 +12,20 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.rumie_group
-      @rumie = RumieGroup.find(@user.rumie_group)
+      @rumie_group = RumieGroup.find(@user.rumie_group)
       @user.rumie_group = nil
       if @user.save
         flash[:notice] = "#{@user.first_name.downcase} removed successfully from
-        #{@rumie.group_name.downcase}"
+        #{@rumie_group.group_name.downcase}"
       else
-        flash[:notice] = @rumie.errors.full_messages
+        flash[:notice] = @rumie_group.errors.full_messages
       end
       redirect_to root_path
     else
-      @rumie = RumieGroup.find(params[:group_id])
-      @rumie.users << @user
-      flash[:notice] = "you've succesfully joined #{@rumie.group_name}!"
-      redirect_to @rumie
+      @rumie_group = RumieGroup.find(params[:group_id])
+      @rumie_group.users << @user
+      flash[:notice] = "you've succesfully joined #{@rumie_group.group_name}!"
+      redirect_to @rumie_group
     end
   end
 end

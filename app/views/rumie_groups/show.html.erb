@@ -1,20 +1,20 @@
-<% content_for :page_title, "#{@rumie.group_name.downcase}" %>
+<% content_for :page_title, "#{@rumie_group.group_name.downcase}" %>
 <div class="row">
   <div class="small-8 small-centered columns">
-    <h1 class="text-center"><%= @rumie.group_name.downcase %></h1>
-    <h3 class="text-center">formed by <%=User.find(@rumie.creator_id).first_name.downcase%></h3>
+    <h1 class="text-center"><%= @rumie_group.group_name.downcase %></h1>
+    <h3 class="text-center">formed by <%=User.find(@rumie_group.creator_id).first_name.downcase%></h3>
   </div>
-  <% if current_user.id == @rumie.creator_id %>
+  <% if current_user.id == @rumie_group.creator_id %>
     <div class="text-center">
-      <%= link_to "settings and options", edit_rumie_group_path(@rumie), class:"button secondary" %>
+      <%= link_to "settings and options", edit_rumie_group_path(@rumie_group), class:"button secondary" %>
     </div>
   <% elsif current_user.rumie_group.nil? %>
     <div class="text-center">
-      <%= link_to "join this group", user_path(current_user, group_id: @rumie.id), method: :patch, class:"button secondary" %>
+      <%= link_to "join this group", user_path(current_user, group_id: @rumie_group.id), method: :patch, class:"button secondary" %>
     </div>
   <% else %>
   <div class="text-center">
-    <%= link_to "leave this group", user_path(current_user, group_id: @rumie.id), method: :patch, class:"button secondary" %>
+    <%= link_to "leave this group", user_path(current_user, group_id: @rumie_group.id), method: :patch, class:"button secondary" %>
   </div>  <% end %>
 </div>
 
@@ -27,16 +27,16 @@
 <div class="row align-center">
   <div class="small-10 medium-5 columns">
     <p class="text-center">
-      <%= @rumie.description.downcase %>
+      <%= @rumie_group.description.downcase %>
     </p>
   </div>
   <div class="small-10 medium-5 columns">
     <p class="text-center">
-      <%=@rumie.users.length%>/<%= @rumie.max_users %> rumies in this group
+      <%=@rumie_group.users.length%>/<%= @rumie_group.max_users %> rumies in this group
     </p>
     <ul class="text-center">
       <h4>users in this group</h4>
-      <% @rumie.users.each do |user| %>
+      <% @rumie_group.users.each do |user| %>
       <li><%= link_to "#{user.first_name.downcase} #{user.last_name.downcase}", user, class:"expanded button secondary" %></li>
       <% end %>
     </ul>
@@ -47,7 +47,7 @@
 <div class="row">
   <div class="small-8 small-centered columns" >
     <div class="small-10 columns" id="map"></div>
-    <input id="address" type="hidden" value="<%= @rumie.city %> <%= @rumie.state %>">
+    <input id="address" type="hidden" value="<%= @rumie_group.city %> <%= @rumie_group.state %>">
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
       type="text/javascript">

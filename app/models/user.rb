@@ -17,8 +17,6 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
 
-  belongs_to :rumie_group, optional: true
-
   mount_uploader :avatar, AvatarUploader
 
   def admin?
